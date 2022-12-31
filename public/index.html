@@ -49,6 +49,103 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-How-to-make-European-roulette-in-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/How-to-make-European-roulette-in-C/" class="article-date">
+  <time class="dt-published" datetime="2022-12-31T07:39:49.000Z" itemprop="datePublished">2022-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Texas-Holdem/">Texas Holdem</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/12/How-to-make-European-roulette-in-C/">How to make European roulette in C</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="How-to-make-European-roulette-in-C"><a href="#How-to-make-European-roulette-in-C" class="headerlink" title="How to make European roulette in C"></a>How to make European roulette in C</h1><p>This article will describe how to create a basic European roulette game in C.</p>
+<p>We will start by setting up the basic structure of our program:</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#define MAX_CASES 100 &#x2F;* Maximum number of cases *&#x2F;</p>
+<p>&#x2F;*  Roulette game state *&#x2F;<br>enum {STATE_UNINITIALIZED &#x3D; 0, STATE_INITIALIZED, STATE_ROUND_ONE, STATE_ROUND_TWO, STATE_ROUND_THREE};</p>
+<p>&#x2F;*  Casino properties *&#x2F;<br>enum {PROPERTY_CASINO_NAME &#x3D; 0, PROPERTY_CASINO_LOGO, PROPERTY_CASINO_WEBSITE};</p>
+<p>} &#x2F;&#x2F; End casino properties enum</p>
+<p>void initCasino() {<br>casinoProperties[PROPERTY_CASINO_NAME] &#x3D; “Vegas”;<br>casinoProperties[PROPERTY_CASINO_LOGO] &#x3D; “vegas-logo.png”;<br>casinoProperties[PROPERTY_CASINO_WEBSITE] &#x3D; “<a target="_blank" rel="noopener" href="http://www.gamblingcommission.gov.uk&quot;/">www.gamblingcommission.gov.uk&quot;</a>;<br>}</p>
+<p>main() {<br>initCasino();</p>
+<p>while (true) {<br>switch (state) {<br>case STATE_UNINITIALIZED: &#x2F;* Do nothing <em>&#x2F; break;<br>case STATE_INITIALIZED: printf(“Welcome to my European roulette game!\n”); break;<br>case STATE_ROUND_ONE: printf(“The ball is about to land!\n”); break;<br>case STATE|STATE: printf(“It has landed on %d!\n”, ballLocation); break;<br>default: printf(“Unknown state!\n”); break;<br>} &#x2F;</em> End switch <em>&#x2F;<br>} &#x2F;</em> End while *&#x2F;</p>
+<p>return 0; }</p>
+<p>In order to create a European roulette game in C, we first need to include the necessary header files. We will also need a variable to store our game state, and two variables for our casino properties. The casino properties will store the name of the casino, the logo image file name, and the website URL. We will also create a function called initCasino(), which will set up the casino properties. Our main() function will call initCasino(), and then run an infinite loop while checking the game state. If the state is unknown, it prints out Unknown state! and breaks from the loop. Otherwise, it prints out The ball is about to land!, The ball has landed on X!, or Unknown state!. When the program ends, we return 0 to indicate successful termination.</p>
+<h1 id="How-to-make-American-roulette-in-C"><a href="#How-to-make-American-roulette-in-C" class="headerlink" title="How to make American roulette in C"></a>How to make American roulette in C</h1><p>The roulette wheel has 36 slots numbered 0 to 35. A slot numbered 0 is green and all the other numbers are black or red.</p>
+<p>To make an American roulette wheel in C, you will need:<br>-A 36 slot wheel, numbered 0 to 35<br>-A ball<br>-38 Green plastic chips<br>-38 Red plastic chips<br>-1 Black plastic chip<br>-1 White plastic chip</p>
+<p>The first thing you need to do is create the wheel. The wheel is a simple C structure with 36 slots, one for each number on the roulette wheel. Each slot will be a char, with the numerical value of the slot as the integer value. You can create this structure like so:</p>
+<p>struct Wheel { &#x2F;&#x2F; slots are numbered 0 to 35 char slot[36]; &#x2F;&#x2F; index into the array gives the number on the roulette wheel int index; };</p>
+<p>  To create the ball, you will need a random number generator. You can use the arc4random() function from the standard library. This function generates random numbers in the range [0, INT_MAX). You will also need to keep track of whether the ball is in play or not. You can do this by creating a boolean variable called “in_play”. Initially, set “in_play” to false. When the ball lands on a number, set “in_play” to true and reset it to false when the ball leaves the wheel. The code for this looks like:</p>
+<p> &#x2F;&#x2F;create a boolean variable to track whether or not &#x2F;&#x2F;the ball is in play bool in_play &#x3D; false; &#x2F;&#x2F; generate a random number between 0 and INT_MAX int randNum &#x3D; arc4random();</p>
+<p>  Now that you have created the Wheel structure and “in_play”, you can write a function to generate a random number between 0 and 35 (the number of slots on the roulette wheel). This function will take two input parameters: “index” and “returnValue”. “Index” will be an integer between 0 and 35 representing which slot on the roulette wheel you would like to generate a random number for. “ReturnValue” will be an integer between 0 and 35 representing what number should appear in that slot on the roulette wheel. The code for this function looks like:</p>
+<p>&#x2F;&#x2F;generate a random number between 0 and 35 int generateRandomNumber(int index, int returnValue) { &#x2F;&#x2F;get a random number from our generator randNum &#x3D; arc4random(); &#x2F;&#x2F;if we’re not in play, then we’ve either just started or &#x2F;&#x2F;the ball has just left if (!in_play) { returnValue &#x3D; randNum % 36; } else { &#x2F;&#x2F;the ball is currently in play returnValue &#x3D; randNum &#x2F; 36; } }</p>
+<p>  Next, you will need to create a function to print out the roulette wheel. This function will take two input parameters: “index” and “displayText”. “Index” will be an integer between 0 and 35 representing which slot on the roulette wheel you would like to print out. “displayText” will be a string containing either “Green”, “Red”, or “Black”. The code for this function looks like:</p>
+<p>void printWheel(int index, const char *displayText) { printf(“%s\t%d</p>
+<p>“,displayText, index); }</p>
+<h1 id="How-to-make-French-roulette-in-C"><a href="#How-to-make-French-roulette-in-C" class="headerlink" title="How to make French roulette in C"></a>How to make French roulette in C</h1><p> roulette is a casino game that involves betting on a spin of a wheel with 38 numbered slots that are alternately coloured black and red, with a green zero. A player who bets on the number corresponding to the slot the ball falls into wins the bet</p>
+<p>In this article, you will learn how to program French roulette in C.</p>
+<p>To create a basic French roulette game in C, you first need to create an array of outcomes for the game. This array will define all of the possible outcomes that can occur in the game, as well as their respective probabilities.</p>
+<p>In our example, we’ll use a six-sided die to generate random outcomes for our game. Our array will looks something like this:</p>
+<p>1&#x2F;6 - black<br> 7&#x2F;36 - red 2&#x2F;6 - black 8&#x2F;36 - red 3&#x2F;6 - black 9&#x2F;36 - red 4&#x2F;6 - black 10&#x2F;36 - red 5&#x2F;6 - black 11&#x2F;36 - red</p>
+<h1 id="How-to-make-roulette-with-double-zero-in-C"><a href="#How-to-make-roulette-with-double-zero-in-C" class="headerlink" title="How to make roulette with double zero in C"></a>How to make roulette with double zero in C</h1><p>In this article, we will discuss how to make a roulette game with double zero in C. For this project, we will be using the Allegro library. The first step is to create a new project and include the Allegro library headers.</p>
+<p>#include &lt;allegro.h&gt;</p>
+<p>Next, we need to create an instance of the allegro_draw_panel class. This class is responsible for displaying the roulette game on the screen.</p>
+<p>ALLEGRO_DRAW_PANEL *panel;</p>
+<p>We also need to create an instance of the allegro_keyboard class. This class is responsible for handling keyboard input.</p>
+<p>ALLEGRO_KEYBOARD *keyboard;</p>
+<p>Now, we can start coding the actual roulette game. The first step is to set up some basic variables. These variables will contain the size and location of the panel, as well as the starting bet amount.</p>
+<p>int width &#x3D; 640; &#x2F;&#x2F; Panel width int height &#x3D; 480; &#x2F;&#x2F; Panel height const int betAmount &#x3D; 100; &#x2F;&#x2F; Starting bet amount</p>
+<p>Next, we need to write a function that will draw the roulette wheel on the panel. This function will take four arguments: x and y coordinates, width and height of the wheel.</p>
+<p>void drawRouletteWheel(int x, int y, int width, int height) { … }</p>
+<p>Inside this function, we first need to calculate the position of each segment on the wheel. We do this by dividing 360 by the number of segments (18). We can then use this value to calculate the angle at which each segment should be drawn.<br>:angle &#x3D; MULTIPLY_BY(360&#x2F;segments, i);</p>
+<p>Next, we need to draw each segment on the wheel. We do this by drawing a line from (x,y) to (x+width<em>cos(angle), y+height</em>sin(angle)).</p>
+<h1 id="How-to-make-custom-roulette-games-in-C"><a href="#How-to-make-custom-roulette-games-in-C" class="headerlink" title="How to make custom roulette games in C"></a>How to make custom roulette games in C</h1><p>Roulette is one of the most popular casino games in the world. It is also one of the simplest to play. With a few basic rules, you can be up and playing in no time at all. Roulette is a game of chance, meaning that the outcome of each spin is random. However, there are some tips and tricks you can use to help increase your chances of winning.</p>
+<p>The game of roulette is played with a wheel numbered from 0 to 36. There are also 18 red slots and 18 black slots, as well as a green slot for 0. Players place bets on either a single number or a range of numbers, or they can bet on whether the ball will land on red or black. Bets are placed by placing chips on the desired spot on the table.</p>
+<p>Once all bets have been placed, the croupier will spin the wheel in one direction and launch the ball in the opposite direction around the edge of the wheel. The ball will eventually fall into one of the slots and determine the outcome of the spin. If you have bet on a single number and the ball lands on that number, you win 35 times your original bet amount. If you have bet on red or black, and the ball lands on that colour, you win even money (1:1).</p>
+<p>In this article, we will walk you through how to create your own custom roulette game in C. We will start by setting up our project structure and then move on to creating our main roulette game loop. We will then add in basic gameplay functionality such as betting and displaying winning results. Finally, we will add in some extra polish to make our game look more professional.</p>
+<p>So let’s get started! Open up your favourite text editor and create a new file called “roulette.c”. This will be our main source code file for our roulette game. Next, we need to include all of the necessary header files we will be using throughout our codebase. So at the top of our file, include the following:</p>
+<p>#include &lt;stdio.h&gt; &#x2F;&#x2F; For printf() #include &lt;stdlib.h&gt; &#x2F;&#x2F; For rand() function #include &lt;time.h&gt; &#x2F;&#x2F; For time() function #include &lt;conio.h&gt; &#x2F;&#x2F; For getch() function</p>
+<p>Now that we have all of our necessary headers included, we can start writing our main roulette game loop:</p>
+<p>&#x2F;&#x2F; Main roulette game loop while (1) { &#x2F;&#x2F; Gets random number between 0 and 36 int num &#x3D; rand() % 37; &#x2F;&#x2F; Checks if number is within range if (num &gt;&#x3D; 0 &amp;&amp; num &lt;&#x3D; 36) { &#x2F;&#x2F; Places bet depending on which number was spun if (num &#x3D;&#x3D; 21) { printf(“You win! Your bet was $%d”, bet); } else { printf(“%d is not a winning number”, num); } } else { printf(“Out of range”); } getch(); }</p>
+<p>As you can see, our main game loop is very simple - it just randomly generates a number between 0 and 36 and then checks if that number falls within our predefined range (0-36). If it does, then it prints out information about the current spin - including whether or not anyone has won - followed by waiting for user input via getch(). Note that we are also keeping track of player’s current bet amount so that we can award them their correct winnings later on.</p>
+<p>Next, let’s add in some basic betting functionality:</p>
+<p>&#x2F;&#x2F; Place Bet function void placeBet(int num) { &#x2F;&#x2F; Gets current bet amount int currentbet &#x3D; getch(); &#x2F;&#x2F; Adds given amount to current bet total if (currentbet &gt; 0) {currentbet &#x3D; currentbet + num;} &#x2F;&#x2F; Updates display text to show new bet amount printf(“Current Bet: $%d”, currentbet); }</p>
+<p>Again, this code should be relatively self-explanatory - we have defined a function called “placeBet” which takes an integer parameter representing how much money to BET overall ($1 being min). The function simply takes user input for current bet amount using getch(), increments it by given parameter amount (+$1), and prints it out for player reference before continuing with main game loop execution . Note that these functions would ideally be wrapped up inside their own header file later down the line for easier readability but this isn’t strictly necessary for getting our core game functionality working properly.</p>
+<p>Now that players can place bets on individual numbers or colours, we need to add code in so that their chosen bets are actually registered:</p>
+<p>&#x2F;&#x2F; Add Bet Function int addBet(int num) { &#x2F;&#x2F; Gets input for new bet int newbet &#x3D; getch(); &#x2F;&#x2F; Checks if input is valid if (newbet &gt; 0 &amp;&amp; newbet &lt;&#x3D; currentbet) { &#x2F;&#x2F; Assigns value to “bets[]” array element accordingly bets[newbet] &#x3D; num</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://educationkarachi.net/2022/12/How-to-make-European-roulette-in-C/" data-id="clcbmvoya0000icv5h8uxfhfx" data-title="How to make European roulette in C" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Dolores-Del-Rio-reveals-the-secret-to-her-loose-slot-machines!" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/12/Dolores-Del-Rio-reveals-the-secret-to-her-loose-slot-machines!/" class="article-date">
@@ -738,81 +835,6 @@
 
 
   
-    <article id="post-Fun-and-Games-in-the-Land-of-the-Micronesians-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/12/Fun-and-Games-in-the-Land-of-the-Micronesians-/" class="article-date">
-  <time class="dt-published" datetime="2022-12-08T09:10:42.000Z" itemprop="datePublished">2022-12-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Poker-Hands/">Poker Hands</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/12/Fun-and-Games-in-the-Land-of-the-Micronesians-/">Fun and Games in the Land of the Micronesians</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Fun-and-Games-in-the-Land-of-the-Micronesians"><a href="#Fun-and-Games-in-the-Land-of-the-Micronesians" class="headerlink" title="Fun and Games in the Land of the Micronesians"></a>Fun and Games in the Land of the Micronesians</h1><p>When most people think of the Micronesian Islands, they think of a tropical paradise, with blue waters, white sand beaches, and swaying palm trees. While it is all of that and more, the islands are also a great place for recreation and fun. There are plenty of activities to keep you busy while you’re on vacation in the Micronesian islands.</p>
-<p>One popular activity is swimming. The water is crystal clear and just the right temperature for a refreshing swim. There are also plenty of coral reefs and fish to see, making it a great place for snorkeling. If you’re looking for more excitement, try diving or surfing.</p>
-<p>Another favorite activity is hiking. There are plenty of trails to explore, each with its own unique scenery. You can hike through rain forests, up mountains, or along rolling hills. If you’re looking for something a little more challenging, try canyoneering.</p>
-<p>If you’d rather stay on dry land, there are still plenty of things to do. Many of the islands have golf courses where you can test your skills against the challenging Pacific terrain. Or take a walk on one of the many white sand beaches that make up the coastline. And don’t forget to sample some of the local cuisine – the seafood is amazing!</p>
-<p>So if you’re looking for some fun in the sun, consider a trip to the Micronesian Islands. You won’t be disappointed!</p>
-<h1 id="So-Much-to-Do-in-So-Little-Time-Micronesia"><a href="#So-Much-to-Do-in-So-Little-Time-Micronesia" class="headerlink" title="So Much to Do in So Little Time: Micronesia"></a>So Much to Do in So Little Time: Micronesia</h1><p>Many travelers to the Pacific Northwest are looking for an interesting and off-the-beaten-path destination, and Micronesia fits that bill perfectly. While there are some resorts on the islands, for the most part, visitors will find themselves in a more traditional setting, where locals live a simple life and hospitality is key. </p>
-<p>There’s so much to do in Micronesia – it’s hard to know where to start! One of the most popular things to do is SCUBA diving. The clear waters offer excellent visibility and a wealth of marine life to see. There are also plenty of coral reefs, making this a great place for underwater enthusiasts. </p>
-<p>Another great activity is hiking. The islands offer some beautiful trails that wind through rainforest and along dramatic coastlines. Be sure to bring your camera – the views are breathtaking! </p>
-<p>If you’re looking for a more relaxed activity, why not try sunbathing or swimming on one of the many gorgeous beaches? Or take a boat trip around the island for a day of fishing or snorkeling. </p>
-<p>No matter what you choose to do, you can be sure that Micronesia will leave you with memories that will last a lifetime.</p>
-<h1 id="Micronesian-casinos-offer-a-great-variety-of-blackjack-games"><a href="#Micronesian-casinos-offer-a-great-variety-of-blackjack-games" class="headerlink" title="Micronesian casinos offer a great variety of blackjack games"></a>Micronesian casinos offer a great variety of blackjack games</h1><p>There are many casinos in Micronesia, and all of them offer a great variety of blackjack games. Whether you’re a beginner or an experienced player, you’re sure to find a game that suits your needs.</p>
-<p>Most casinos offer multiple variations of the game, including classic blackjack, Spanish blackjack, European blackjack, and 21+3. There are also often variants with different rules, such as dealer’s choice blackjack and double exposure blackjack.</p>
-<p>If you’re looking for a thrilling gaming experience, head to one of the casinos in Pohnpei. Pohnpei is home to some of the most exciting and challenging blackjack games in the world. Players can enjoy big payouts on some of the exclusive table games offered at these casinos.</p>
-<p>Whether you’re visiting Micronesia or you live here, make sure to check out the local casinos and enjoy a few rounds of blackjack!</p>
-<h1 id="Fun-in-the-Sun-and-Blackjack-Games-in-Micronesia"><a href="#Fun-in-the-Sun-and-Blackjack-Games-in-Micronesia" class="headerlink" title="Fun in the Sun and Blackjack Games in Micronesia"></a>Fun in the Sun and Blackjack Games in Micronesia</h1><p>The sunny beaches and clear blue waters of Micronesia are a perfect place to take in some fun in the sun. But if you’re looking for a little more excitement, you can also check out some of the blackjack games that are available on the islands.</p>
-<p>In particular, the island of Pohnpei is known for its blackjack games, which offer a variety of betting options and table stakes. Whether you’re a beginner or an experienced player, there’s sure to be a game that’s right for you.</p>
-<p>There are several casinos located on Pohnpei, each with its own slate of blackjack games. You can choose from classic versions of the game, like 21 or Double Attack, or try your hand at one of the variants, like Lucky Ladies or Spanish 21. No matter what your preference, you’re sure to find a game that suits your style.</p>
-<p>In addition to blackjack, Pohnpei also offers a wide selection of other casino games. You can try your luck at slots, roulette, or craps, or see if you can beat the dealer at poker or baccarat. With all these options available, you’re sure to have a blast while enjoying some of the best that Micronesia has to offer.</p>
-<h1 id="Discovering-the-Many-Faces-of-Blackjack-in-Micronesia"><a href="#Discovering-the-Many-Faces-of-Blackjack-in-Micronesia" class="headerlink" title="Discovering the Many Faces of Blackjack in Micronesia"></a>Discovering the Many Faces of Blackjack in Micronesia</h1><p>Micronesia is a sovereign country in the Western Pacific. It is made up of more than 600 islands, which are divided into four states: Chuuk, Kosrae, Pohnpei, and Yap. Each of these states has its own distinct culture, language, and landscape.</p>
-<p>Despite this diversity, one thing that unites the people of Micronesia is their love of blackjack. In fact, blackjack is such a popular game in Micronesia that there are several variations that are unique to the region.</p>
-<p>If you’re looking for a unique gambling experience, then Micronesia is the place to be. Here are some of the most intriguing blackjack variants you’ll find in Micronesia:</p>
-<ol>
-<li>Lucky Seven</li>
-</ol>
-<p>Lucky Seven is a blackjack variant that is popular in Pohnpei. The game begins with each player being dealt two cards face down. The player then decides whether to hit or stand. Once all players have either hit or stood, the dealer flips over their two cards. The player with the highest total (not including a tie) wins the hand. If two or more players have the same total, then the pot is split between them.</p>
-<ol start="2">
-<li>Double Exposure Blackjack</li>
-</ol>
-<p>Double Exposure Blackjack is a variation of blackjack that is popular in Kosrae and Yap. As its name suggests, double exposure means that both dealer cards are face up when the hand begins. This makes it easier for players to make decisions, as they can see what cards the dealer has left in Play. The aim of the game is to beat the dealer’s hand without going bust.</p>
-<ol start="3">
-<li>Pontoon</li>
-</ol>
-<p>Pontoon is a blackjack variant that is popular in Chuuk State and Pohnpei State. The game is played with eight decks of cards, and each player is dealt two cards face down and one card face up. The player then decides whether to hit or stand; if they choose to hit, they must hit again unless they have less than five points total (in which case they must stand). The aim of pontoon is to beat the dealer’s hand without going bust (i.e., having a total greater than 21). If the player and dealer have identical hands, then the pot is split between them</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://educationkarachi.net/2022/12/Fun-and-Games-in-the-Land-of-the-Micronesians-/" data-id="clbeuzyd30000xgv5eztqdofq" data-title="Fun and Games in the Land of the Micronesians" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -839,6 +861,10 @@
       <ul>
         
           <li>
+            <a href="/2022/12/How-to-make-European-roulette-in-C/">How to make European roulette in C</a>
+          </li>
+        
+          <li>
             <a href="/2022/12/Dolores-Del-Rio-reveals-the-secret-to-her-loose-slot-machines!/">Dolores Del Rio reveals the secret to her loose slot machines!</a>
           </li>
         
@@ -854,10 +880,6 @@
             <a href="/2022/12/Negative-Number-in-Activities-Betting-Often-Means-a-Large-Loss/">Negative Number in Activities Betting Often Means a Large Loss</a>
           </li>
         
-          <li>
-            <a href="/2022/12/10-Tips-to-Help-You-Win-More-Games-of-Blackjack-in-Red-Dead-Redemption-2-/">10 Tips to Help You Win More Games of Blackjack in Red Dead Redemption 2</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -867,7 +889,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/888-Casino/">888 Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Academic-Research/">Academic Research</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blackjack/">Blackjack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Casino-Royale/">Casino Royale</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Fresno-Casino/">Fresno Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Live-Casino-House/">Live Casino House</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Online-Casino/">Online Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Poker-Hands/">Poker Hands</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Education/">School Education</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackjack/">blackjack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poker-hands/">poker hands</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/888-Casino/">888 Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Academic-Research/">Academic Research</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blackjack/">Blackjack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Casino-Royale/">Casino Royale</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Fresno-Casino/">Fresno Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Live-Casino-House/">Live Casino House</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Online-Casino/">Online Casino</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Poker-Hands/">Poker Hands</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Education/">School Education</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Texas-Holdem/">Texas Holdem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackjack/">blackjack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/poker-hands/">poker hands</a></li></ul>
     </div>
   </div>
 
